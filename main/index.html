@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -220,7 +219,8 @@
         <h1>Happy Birthday!</h1>
         <p id="birthdayName"></p>
     </div>
-
+    <div id="qrcode"></div>
+    <button id="downloadBtn">Tải QR về</button>
 </body>
 <script>
     function getQueryParam(param) {
@@ -232,7 +232,26 @@
     const name = getQueryParam("name") || "Bạn";
     document.getElementById("birthdayName").textContent = name;
 
+    const url = window.location.href;
 
+    // Tạo QR code
+    QRCode.toDataURL(url)
+        .then(dataUrl => {
+            // Hiển thị QR code
+            const img = document.createElement('img');
+            img.src = dataUrl;
+            img.id = "qrImg";
+            document.getElementById('qrcode').appendChild(img);
+
+            // Nút tải về
+            document.getElementById('downloadBtn').addEventListener('click', () => {
+                const a = document.createElement('a');
+                a.href = dataUrl;
+                a.download = 'qrcode.png';
+                a.click();
+            });
+        })
+        .catch(err => console.error(err));
 </script>
 <script>
 
