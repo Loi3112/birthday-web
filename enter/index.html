@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhập tên</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    h1 {
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    input {
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background: #ff4081;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      font-size: 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #f50057;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🎉 Nhập tên của bạn 🎉</h1>
+  <input type="text" id="nameInput" placeholder="Nhập tên..." />
+  <button onclick="goToCake()">Chọn</button>
+
+  <script>
+    function goToCake() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (!name) return alert("Vui lòng nhập tên!");
+
+      const encodedName = encodeURIComponent(name);
+      // chuyển tới main/ với query string
+      window.location.href = `../main/?name=${encodedName}`;
+    }
+
+  </script>
+</body>
+
+</html>
