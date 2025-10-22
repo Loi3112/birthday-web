@@ -110,3 +110,22 @@
       font-size: 1.4em;
     }
   }  
+  #downloadBtn {
+  position: fixed;      /* cố định trên viewport */
+  bottom: 20px;         /* cách đáy 20px */
+  right: 20px;          /* cách bên phải 20px */
+  width: 40px;          /* kích thước nút */
+  height: 40px;
+  border-radius: 50%;   /* tròn */
+  font-size: 24px;      /* chữ + */
+  background-color: #ee9ca7; /* màu nền */
+  color: white;         /* màu chữ */
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 9999;        /* luôn nổi trên */
+}
+
+#downloadBtn:hover {
+  background-color: #e64a19; /* màu khi hover */
+}
