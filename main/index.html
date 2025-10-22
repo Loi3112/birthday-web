@@ -49,7 +49,6 @@
 
 
 <body>
-    <button id="downloadBtn">Tải QR code về máy</button>
 
     <div class="velas">
         <div class="fuego"></div>
@@ -219,8 +218,7 @@
         <h1>Happy Birthday!</h1>
         <p id="birthdayName"></p>
     </div>
-    <div id="qrcode"></div>
-    <button id="downloadBtn">Tải QR về</button>
+    <button id="downloadBtn">Tải QR code về</button>
 </body>
 <script>
     function getQueryParam(param) {
@@ -234,24 +232,18 @@
 
     const url = window.location.href;
 
-    // Tạo QR code
-    QRCode.toDataURL(url)
-        .then(dataUrl => {
-            // Hiển thị QR code
-            const img = document.createElement('img');
-            img.src = dataUrl;
-            img.id = "qrImg";
-            document.getElementById('qrcode').appendChild(img);
-
-            // Nút tải về
-            document.getElementById('downloadBtn').addEventListener('click', () => {
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+        const url = window.location.href; // URL hiện tại
+        QRCode.toDataURL(url)
+            .then(dataUrl => {
+                // Tạo link ẩn để tải file
                 const a = document.createElement('a');
                 a.href = dataUrl;
-                a.download = 'qrcode.png';
+                a.download = 'qrcode.png'; // tên file PNG
                 a.click();
-            });
-        })
-        .catch(err => console.error(err));
+            })
+            .catch(err => console.error(err));
+    });
 </script>
 <script>
 
