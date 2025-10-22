@@ -110,7 +110,7 @@
       font-size: 1.4em;
     }
   }  
-  #downloadBtn {
+  .downloadBtn {
   position: fixed;      /* cố định trên viewport */
   bottom: 20px;         /* cách đáy 20px */
   right: 20px;          /* cách bên phải 20px */
@@ -126,6 +126,6 @@
   z-index: 9999;        /* luôn nổi trên */
 }
 
-#downloadBtn:hover {
+.downloadBtn:hover {
   background-color: #e64a19; /* màu khi hover */
 }
