@@ -51,20 +51,31 @@
 
 <body>
   <h1>🎉 Nhập tên của bạn 🎉</h1>
-  <input type="text" id="nameInput" placeholder="Nhập tên..." />
-  <button onclick="goToCake()">Chọn</button>
+  <!-- <input type="text" id="nameInput" placeholder="Nhập tên..." />
+  <button onclick="goToCake()">Chọn</button> -->
 
-  <script>
+<input type="text" id="nameInput" placeholder="Nhập tên bạn">
+<button id="goBtn">Đi tiếp</button>
+
+  <!-- <script>
     function goToCake() {
       const name = document.getElementById("nameInput").value.trim();
       if (!name) return alert("Vui lòng nhập tên!");
 
       const encodedName = encodeURIComponent(name);
-      // chuyển tới main/ với query string
       window.location.href = `../main/?name=${encodedName}`;
     }
 
-  </script>
+  </script> -->
+  <script>
+  const btn = document.getElementById('goBtn');
+  btn.addEventListener('click', () => {
+    const name = document.getElementById('nameInput').value.trim();
+    if (!name) return alert("Nhập tên đã!");
+    // Chuyển trang kèm query param
+    window.location.href = `main/index.html?name=${encodeURIComponent(name)}`;
+  });
+</script>
 </body>
 
 </html>
